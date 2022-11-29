@@ -17,7 +17,7 @@ clean:
 build: 
 	$(compose) build
 
-re: 	clean all
+re: 	fclean all
 
 fclean:
 	sudo docker system prune --volumes --all --force
