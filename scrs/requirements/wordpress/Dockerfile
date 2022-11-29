@@ -6,7 +6,8 @@ RUN		apt-get update
 RUN		apt-get -y install php-fpm\
 		php-mysql\
 		curl\
-		tar
+		tar \
+		mariadb-client
 #		dumb-init
 
 #COPY			./tools/wp.sh		/	

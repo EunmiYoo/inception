@@ -1,30 +1,31 @@
 
+compose 	= cd scrs && sudo docker-compose
+
 all:
 	#sudo docker compose -f ./scrs/docker-compose.yml build
 	sudo mkdir -p /home/eyoo/data/mariadb
 	sudo mkdir -p /home/eyoo/data/wordpress
 	sudo chmod 777 /etc/hosts
 	sudo echo "127.0.0.1 eyoo.42.fr" >> /etc/hosts
-	docker compose -f ./scrs/docker-compose.yml up -d --build
+#	cd scrs/
+	$(compose) build
+	$(compose) up -d 
 
-down:
-	docker compose -f ./scrs/docker-compose.yml down
+clean:
+	$(compose) down
 
 build: 
-	docker compose -f ./scrs/docker-compose.yml build
+	$(compose) build
 
 re: 	clean all
 
-clean:
-	sudo docker compose -f ./scrs/docker-compose.yml down
-
 fclean:
-	docker system prune --volumes --all --force
-	docker stop $$(docker ps -qa);\
-	docker rm $$(docker ps -qa);\
-	docker rmi -f $$(docker images -qa);\
-	docker volume rm $$(docker volume ls -q);\
-	sudo rm -rf /home/eyoo/
+	sudo docker system prune --volumes --all --force
+	sudo docker stop $$(docker ps -qa);\
+	sudo docker rm $$(docker ps -qa);\
+	sudo docker rmi -f $$(docker images -qa);\
+	sudo docker volume rm $$(docker volume ls -q);\
+	sudo rm -rf /home/eyoo/data
 	
 
 .PHONY: all re down clean fclean
