@@ -20,16 +20,16 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'inception');
+define( 'DB_NAME', ${DATABASE_NAME} );
 
 /** Database username */
-define( 'DB_USER', 'kkk');
+define( 'DB_USER', ${DATABASE_LOGIN} );
 
 /** Database password */
-define( 'DB_PASSWORD', '1234');
+define( 'DB_PASSWORD', ${DATABASE_PASSWORD} );
 
 /** Database hostname */
-define( 'DB_HOST', 'mariadb:3306' );
+define( 'DB_HOST', ${DATABASE_HOST} );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -48,14 +48,15 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'v-*PrnjMfPeO[+tEMtNktGHjZ?^bW`g6E|1!lZ5$J{k+[t(|Iwgnjelj|--o@#qb');
-define('SECURE_AUTH_KEY',  'K;{]++wF>1{pVZ$tR+-8R/CRwc+IV9*-mj=K<4y6ojK>yPou&y7K!)hmWA/|W6&;');
-define('LOGGED_IN_KEY',    'eliC.v[S;N|Y|Dfwu=Xee0I1F2DaL%X,i^N0DdIL;MD/fz;^|rd$qi]?/U]_T<|=');
-define('NONCE_KEY',        'nNT%Z;:w5bm]>1$pF2~Uh~+]&}qg]mP,Dx$xRg<k,H?,?m;hpq6o`.-V7|TV:|6{');
-define('AUTH_SALT',        'q+p1bAf+;JW(nV.g%:isC)k%3QXD@$VfkilFzbZpS.130]7:&e%o8k@ Zj+M`tFq');
-define('SECURE_AUTH_SALT', 'Z23C)zMI&.e[g|4-@$ERMJX;v{2>>+n>~ef:sl7^3wAB:w;EfqrJ1t//F-*-BvWb');
-define('LOGGED_IN_SALT',   'kK6,!wBGwk%^E-<kzC-!|>(~?$Gp)H4Tc_Ss6+EwO?Zxx<0fU,8bA[6*VIn+6&@]');
-define('NONCE_SALT',       'W9C&lqCF7d*Iy9HTSC?5s75JkYKf:p^7xNGzC6aql48O;a[C6-= ?5{FGkxjd6b$');
+define( 'AUTH_KEY',         'put your unique phrase here' );
+define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
+define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
+define( 'NONCE_KEY',        'put your unique phrase here' );
+define( 'AUTH_SALT',        'put your unique phrase here' );
+define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
+define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
+define( 'NONCE_SALT',       'put your unique phrase here' );
+
 /**#@-*/
 
 /**
@@ -82,7 +83,7 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-define('WP_ALLOW_REPAIR', true);
+
 
 /* That's all, stop editing! Happy publishing. */
 

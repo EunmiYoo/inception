@@ -11,8 +11,9 @@ RUN		chmod +x /run.sh
 
 COPY		conf/my.cnf	/etc/mysql/
 #RUN		chmod +x /etc/mysql/mariadb.conf.d/50-server.cnf
-#RUN		mkdir -p /var/run/mysqld \
-#		chowm  mysql:mysql /var/run/mysql 
+#RUN		mkdir -p /var/run/mysqld 
+#RUN		touch /var/run/mysql/mysql.sock
+#RUN		chowm  mysql:mysql /var/run/mysql 
 #RUN		chmod +x /var/run/mysqld/
 #ENTRYPOINT	["/usr/bin/dumb-init"]
 CMD			["/run.sh"]

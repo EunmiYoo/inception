@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#mkdir -p /var/run/mysqld/
+#touch /var/run/mysqld/mysqld.sock
+
 service mysql start
 
 echo "CREATE DATABASE IF NOT EXISTS $DATABASE_NAME" | mysql -u root
