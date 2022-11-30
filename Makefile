@@ -1,5 +1,5 @@
 
-compose 	= cd scrs && sudo docker-compose
+#compose 	= cd scrs && sudo docker-compose
 
 all:
 	#sudo docker compose -f ./scrs/docker-compose.yml build
@@ -8,14 +8,15 @@ all:
 	sudo chmod 777 /etc/hosts
 	sudo echo "127.0.0.1 eyoo.42.fr" >> /etc/hosts
 #	cd scrs/
-	$(compose) build
-	$(compose) up -d 
+#	$(compose) build
+#	$(compose) up -d 
+	docker compose -f ./scrs/docker-compose.yml up -d --build 
 
 clean:
-	$(compose) down
+#	$(compose) down
 
 build: 
-	$(compose) build
+#	$(compose) build
 
 re: 	fclean all
 
