@@ -1,22 +1,59 @@
-####도커 기본 명령어
+#########################  basic cammand for docker #######################################
 
- docker build -t ft_server .
- docker ps
- docker run -it -p 443:443 -p 80:80 ft_server
-
-
-
-
-
-
- ## 컨테이너 리스트 보기
+ ## docker status && container list (도커 상태 또는 컨테이너 리스트 보기)
  docker ps
 
- ## 각 컨테이너 접근
- docker exec -it 컨테이너이름 /bin/bash
+ ## Acess to the each container (각 컨테이너 접근)
+1)  docker exec -it 컨테이너이름 /bin/bash 
 
- ####서비스명이 mariadb인 컨테이너 도커컴포즈로 실행 bash 로 접근
- docker-compose exec mariadb /bin/bash
+2)  docker-compose exec mariadb /bin/bash (Cab access only in the folder which have docker-compose file)
+
+######################### Notions #################################################################
+
+1) How Docker and docker-compose work :
+-Docker Compose is a Docker tool used to define and run multi-container applicationsi. It needs docker-compose.yaml file 
+-Docker Compose est un outil Docker utilisé pour définir et exécuter des applications multi-conteneurs. Il a besionde ficher de yml. 
+
+2) diffence with docker-compose and without docker-compose
+Docker(without docker-compose) installs multiple services into a single container. 
+On the other hand, Docker Compose installs multiple services in multiple containers and connects them to create a single service.
+
+3) Benefits of docker compare to VM 
+Docker containers are process-isolated and don’t require a hardware hypervisor. This means Docker containers are much smaller and require far fewer resources than a VM.
+Docker is fast. Very fast. While a VM can take an at least a few minutes to boot and be dev-ready, it takes anywhere from a few milliseconds to (at most) a few seconds to start a Docker container from a container image.
+
+
+################## nginx 확인 
+http(port 80) cannot connect ???
+
+0.0.0.0:443 -->400 bad request ???
+
+############ wordpress check list 
+
+1)volume connect 
+------------> docker volume ls 
+-----------> docker volume inspect
+2) comment 더하기 
+3) 관리자계정으로 데시보드 확인하기  
+4) 관리자계정으로 페이지 편집 확인 
+
+
+############## mariadb check list 
+
+1) volume connect
+----> docker volume ls 
+----> docker volume inspect
+
+2) login root / eyoo
+mysql -u root 
+mysql -u eyoo -p1234 
+
+
+
+###############         docker volume check path    ##################
+
+--->   docker inspect -f "{{.Mounts}}" <nom/id du container>
+
 
 
  ########### mariadb 설정############################################
@@ -61,6 +98,10 @@ select user, host from user; (user check)
  SHOW VARIABLES;        -->환경변수 확인
 
 ############ wordpress 설정 ##########################
+
+ connection check with mariadb
+ mysql -u eyoo -p1234 -h "IP" 
+ wp user list --allow-root (admin, author)
 
 #######필요한 패키지 설치 
 RUN		apt-get update -y &&\

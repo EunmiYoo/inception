@@ -8,7 +8,6 @@ RUN		apt-get -y install php-fpm\
 		curl\
 		tar \
 		mariadb-client
-#		dumb-init
 
 COPY			./tools/wp.sh		/	
 RUN			curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -28,11 +27,7 @@ RUN			mkdir /run/php
 RUN			echo "listen =0.0.0.0:9000" >> /etc/php/7.3/fpm/pool.d/www.conf
 
 
-#ENTRYPOINT		["/usr/bin/dumb-init"]
 RUN			chmod +x /wp.sh
 
-#COPY			conf/wp-config.php /var/www/wordpress/
-#RUN			rm -rf /var/www/wordpress/wp-config-sample.php
 EXPOSE			9000
 CMD 			["/wp.sh"]
-#CMD			["usr/sbin/php-fpm7.3", "-F"]
