@@ -158,7 +158,7 @@ RUN	 echo "listen = 9000" >> /etc/php/7.3/fpm/pool.d/www.conf
 
 #### 워드프레스의 소유자를 www-data로 바꾸어 준다.
 
-### wp-config.php 파일 옮기기 
+### wp-config.php 파일 옮기기 (옮겨도 환경변수가 중복사용이 안되어 실행파일에서 다시 잡아주어야함)
 COPY		conf/wp-config.php /var/www/wordpress/
 COPY		tools/run.sh	/
 RUN		chmod +x /run.sh
