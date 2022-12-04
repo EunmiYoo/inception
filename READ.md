@@ -2,6 +2,7 @@
 
  ## docker status && container list (도커 상태 또는 컨테이너 리스트 보기)
  docker ps
+ docker-compose ps
 
  ## Acess to the each container (각 컨테이너 접근)
 1)  docker exec -it 컨테이너이름 /bin/bash 
@@ -23,10 +24,14 @@ Docker containers are process-isolated and don’t require a hardware hypervisor
 Docker is fast. Very fast. While a VM can take an at least a few minutes to boot and be dev-ready, it takes anywhere from a few milliseconds to (at most) a few seconds to start a Docker container from a container image.
 
 
-################## nginx 확인 
-http(port 80) cannot connect ???
+################################# nginx 확인 
 
-0.0.0.0:443 -->400 bad request ???
+################## TLS1_2, TLS1_3 CHECK
+openssl s_client -connect eyoo.42.fr:443 -tls1_2
+openssl s_client -connect eyoo.42.fr:443 -tls1_3
+
+self-signed certificate warning appear.
+
 
 ############ wordpress check list 
 
