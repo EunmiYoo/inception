@@ -26,7 +26,7 @@ Docker is fast. Very fast. While a VM can take an at least a few minutes to boot
 
 ################################# nginx 확인 
 
-1) TLS1_2, TLS1_3 CHECK
+1) TLS12, TLS13 CHECK
 openssl s_client -connect eyoo.42.fr:443 -tls1_2
 openssl s_client -connect eyoo.42.fr:443 -tls1_3
 
@@ -39,6 +39,12 @@ self-signed certificate warning appear.
 1)volume connect 
 ------------> docker volume ls 
 -----------> /home/eyoo/data/  (peut modifier POUR CHECK-> docker exec -it mariadb bash)  path: /var/lib/mysql ) 
+ 
+2)connection check with mariadb
+
+mysql -u eyoo -p1234 -h "IP" 
+wp user list --allow-root (admin, author)
+
 
 2) comment 더하기 
 3) 관리자계정으로 데시보드 확인하기  
@@ -48,19 +54,33 @@ self-signed certificate warning appear.
 ############## mariadb check list 
 
 1) volume connect
-----> docker volume ls 
-----> docker volume inspect
+
+docker volume ls (VOLUME LIST) 
+
+docker inspect -f "{{.Mounts}}" <nom/id du container>
 
 2) login root / eyoo
+
 mysql -u root 
 mysql -u eyoo -p1234 
 
 
+3) check user  
 
-###############         docker volume check path    ##################
+docker exec -it mariadb /bin/bash
 
---->   docker inspect -f "{{.Mounts}}" <nom/id du container>
+mysql 
 
+use mysql;
+
+select user, host from user; 
+
+SHOW DATABASES; --> db 확인 
+SHOW VARIABLES; --> 환경변수 확인
+
+
+
+hostname i----> IP CHECK(POUR WORDPRESS)
 
 
  ########### mariadb 설정############################################
@@ -91,24 +111,8 @@ mysql -u eyoo -p1234
 
 
 
-마리아디비 유저 확인 
-docker exec -it mariadb /bin/bash
-mysql
-마리아디비 실행 가능 
-use mysql;
-select user, host from user; (user check)
-hostname i----> IP CHECK(POUR WORDPRESS)
-들어가면 eyoo %(외부접속가능)
-
- mysql 들어가서
- SHOW DATABASES;         --> db 확인
- SHOW VARIABLES;        -->환경변수 확인
-
 ############ wordpress 설정 ##########################
 
- connection check with mariadb
- mysql -u eyoo -p1234 -h "IP" 
- wp user list --allow-root (admin, author)
 
 #######필요한 패키지 설치 
 RUN		apt-get update -y &&\
