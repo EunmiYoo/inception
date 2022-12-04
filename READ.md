@@ -26,10 +26,11 @@ Docker is fast. Very fast. While a VM can take an at least a few minutes to boot
 
 ################################# nginx 확인 
 
-################## TLS1_2, TLS1_3 CHECK
+1) TLS1_2, TLS1_3 CHECK
 openssl s_client -connect eyoo.42.fr:443 -tls1_2
 openssl s_client -connect eyoo.42.fr:443 -tls1_3
 
+2) via cle 
 self-signed certificate warning appear.
 
 
@@ -37,7 +38,8 @@ self-signed certificate warning appear.
 
 1)volume connect 
 ------------> docker volume ls 
------------> docker volume inspect
+-----------> /home/eyoo/data/  (peut modifier POUR CHECK-> docker exec -it mariadb bash)  path: /var/lib/mysql ) 
+
 2) comment 더하기 
 3) 관리자계정으로 데시보드 확인하기  
 4) 관리자계정으로 페이지 편집 확인 
