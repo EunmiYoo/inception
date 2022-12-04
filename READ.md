@@ -97,7 +97,7 @@ mysql
 마리아디비 실행 가능 
 use mysql;
 select user, host from user; (user check)
-
+hostname i----> IP CHECK(POUR WORDPRESS)
 들어가면 eyoo %(외부접속가능)
 
  mysql 들어가서
