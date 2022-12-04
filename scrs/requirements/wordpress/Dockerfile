@@ -1,13 +1,13 @@
-FROM	debian:buster
+FROM			debian:buster
 
-EXPOSE	9000
+EXPOSE			9000
 
-RUN		apt-get update
-RUN		apt-get -y install php-fpm\
-		php-mysql\
-		curl\
-		tar \
-		mariadb-client
+RUN			apt-get update
+RUN			apt-get -y install php-fpm\
+			php-mysql\
+			curl\
+			tar \
+			mariadb-client
 
 COPY			./tools/wp.sh		/	
 RUN			curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
