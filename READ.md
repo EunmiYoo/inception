@@ -48,6 +48,8 @@ openssl s_client -connect eyoo.42.fr:443 -tls1_3
 
 2) Self-signed certificate warning appear.
 
+3) curl -k http://eyoo.42.fr  (check port 80)
+
 
 ###################### wordpress check point ####################################################### 
 
