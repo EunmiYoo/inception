@@ -83,7 +83,7 @@ docker inspect -f "{{.Mounts}}" <nom/id du container>
 
 2) login root / eyoo
 
-mysql -u root 
+mysql -u root -p1233
 
 mysql -u eyoo -p1234 
 
