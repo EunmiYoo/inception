@@ -53,6 +53,13 @@ openssl s_client -connect eyoo.42.fr:443 -tls1_3
 3) curl -k http://eyoo.42.fr  (check port 80)
 
 
+######################docker network #######################################################
+
+Docker container runs in an isolated environment, it is basically impossible to communicate with other containers.
+
+However, if you connect multiple containers to a single Docker network, they can communicate with each other.
+
+
 ###################### wordpress check point ####################################################### 
 
 1)volume connect 
