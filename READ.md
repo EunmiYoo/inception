@@ -39,7 +39,9 @@ Docker is fast. Very fast. While a VM can take an at least a few minutes to boot
 
 ####################### nginx check point ########################################################## 
 
-1) TLS12, TLS13 CHECK
+1) TLS1.2, TLS1.3 CHECK
+
+TLS is a protocol used to encrypt communication between a user and a web browser.
 
 openssl s_client -connect eyoo.42.fr:443 -tls1_2
 
