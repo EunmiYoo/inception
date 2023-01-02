@@ -112,7 +112,7 @@ SHOW VARIABLES; --> 환경변수 확인
 
 
 
-hostname i----> IP CHECK(POUR WORDPRESS)
+hostname -i----> IP CHECK(POUR WORDPRESS)
 
 
 ########### mariadb config############################################
